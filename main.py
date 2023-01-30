@@ -17,7 +17,6 @@ def output(round):
         index+=1
 def guessing():
     player_guess = input("Who has more followers? Type 'A' or 'B': ").upper()
-    # player_guess = 'A'
     if player_guess not in ('A','B'):
         print('Selected neither A nor B, exiting program')
         exit()
@@ -51,7 +50,10 @@ def run_game():
         print(player_choice)
         print(correct_answer)
         if int(player_choice) != int(correct_answer):
-            print("Wrong answer")
+            print(f"Wrong answer. {round[player_choice]['name']} has less followers than {round[correct_answer]['name']}\n"
+                  f"{round[player_choice]['name']} followers: {round[player_choice]['follower_count']}"
+                  f"\nvs\n{round[correct_answer]['name']} followers: {round[correct_answer]['follower_count']}"
+                  f"\nThe amount of correct guesses this game was: {correct_guesses}")
             keep_alive=False
         else:
             correct_guesses += 1
