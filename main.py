@@ -1,5 +1,5 @@
 import random
-
+from replit import clear
 import game_date
 from art import logo,vs
 from game_date import data
@@ -47,8 +47,7 @@ def run_game():
         output(round)
         player_choice = guessing()
         correct_answer = compare(player_choice,round)
-        print(player_choice)
-        print(correct_answer)
+        clear()
         if int(player_choice) != int(correct_answer):
             print(f"Wrong answer. {round[player_choice]['name']} has less followers than {round[correct_answer]['name']}\n"
                   f"{round[player_choice]['name']} followers: {round[player_choice]['follower_count']}"
@@ -57,7 +56,7 @@ def run_game():
             keep_alive=False
         else:
             correct_guesses += 1
-            print(f"You guessed correct, wins so far: {correct_guesses}")
+            print(f"You're Right! Current score: {correct_guesses}")
 
 
 
